@@ -50,7 +50,7 @@ struct Graph *createRandomGraph(int nNodes, int nEdges, int seed) {
         exec_time = f_exec_t - i_exec_t;
 
         //print execution time and number of threads
-        printf("Create Random Graph operation time, for 1: %lf seconds\n", exec_time);
+        printf("\nCreate Random Graph operation time, for 1: %lf seconds\n", exec_time);
 
 	// Initial operation time
         i_exec_t = omp_get_wtime();
