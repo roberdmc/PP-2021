@@ -163,7 +163,7 @@ int main(int argc, char ** argv) {
 		nEdges = atoi(argv[2]);
 		seed = atoi(argv[3]);
 	} else {
-		int aux fscanf(stdin, "%d %d %d", &nNodes, &nEdges, &seed);
+		int aux = fscanf(stdin, "%d %d %d", &nNodes, &nEdges, &seed);
 	}
 
 	// Initial operation time
