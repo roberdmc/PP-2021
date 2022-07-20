@@ -50,7 +50,7 @@ struct Graph *createRandomGraph(int nNodes, int nEdges, int seed) {
         exec_time = f_exec_t - i_exec_t;
 
         //print execution time and number of threads
-        printf("\nCreate Random Graph operation time, for 1: %lf seconds\n\n", exec_time);
+        printf("Create Random Graph operation time, for 1: %lf seconds\n", exec_time);
 
 	// Initial operation time
         i_exec_t = omp_get_wtime();
@@ -71,7 +71,7 @@ struct Graph *createRandomGraph(int nNodes, int nEdges, int seed) {
 	exec_time = f_exec_t - i_exec_t;
 
 	//print execution time and number of threads
-	printf("\nCreate Random Graph operation time, for 2: %lf seconds\n\n", exec_time);
+	printf("Create Random Graph operation time, for 2: %lf seconds\n\n", exec_time);
 
 	return graph;
 }
@@ -103,7 +103,7 @@ int *dijkstra(struct Graph *graph, int source) {
 	exec_time = f_exec_t - i_exec_t;
 
 	//print execution time and number of threads
-	printf("Djikstra operation time, for 1: %lf seconds\n\n", exec_time);
+	printf("Djikstra operation time, for 1: %lf seconds\n", exec_time);
 
 	// Initial operation time
         i_exec_t = omp_get_wtime();
