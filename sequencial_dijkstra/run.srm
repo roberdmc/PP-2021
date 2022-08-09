@@ -1,0 +1,33 @@
+#!/bin/bash
+#SBATCH --nodes=1                     #Numero de Nós
+#SBATCH --ntasks-per-node=1           #Numero de tarefas por Nó
+#SBATCH --ntasks=1                    #Numero total de tarefas MPI
+#SBATCH --cpus-per-task=24            #Numero de threads
+#SBATCH -p cpu_small                  #Fila (partition) a ser utilizada
+#SBATCH -J Sequencial                 #Nome job
+#SBATCH --exclusive                   #Utilização exclusiva dos nós durante a execução
+
+#Exibe os nós alocados para o Job
+echo $SLURM_JOB_NODELIST
+nodeset -e $SLURM_JOB_NODELIST
+
+cd $SLURM_SUBMIT_DIR
+
+#Configura os compiladores
+#Intel
+#source /scratch/app/modulos/intel-psxe-2016.sh
+
+#ou
+#GNU
+module load gcc/6.5
+
+#Configura o executavel
+EXEC=/scratch/ppar_unioeste/roberval.requiao/PP-Dijkstra-OMP/seqDijkstra/dijkstra
+
+#exibe informaçoes sobre o executavel
+#/usr/bin/ldd $EXEC
+
+#configura o numero de threads, de acordo com o parametro definido no Slurm
+#export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+srun -N 1 -c $SLURM_CPUS_PER_TASK -o %x-%J.out $EXEC 500000 100 1
